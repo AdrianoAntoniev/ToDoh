@@ -17,7 +17,7 @@ struct NewTaskView: View {
             TextField("New Task", text: $answer)
             
             Button(action: {
-                model.tasks.append(answer)
+                model.tasks.append(Task(description: answer, isDone: true))
                 
                 presentationMode.wrappedValue.dismiss()
             }, label: {

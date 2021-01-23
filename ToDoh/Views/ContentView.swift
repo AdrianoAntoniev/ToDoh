@@ -16,7 +16,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(model.tasks, id: \.self) { task in
-                    Text(task)
+                    Text(task.description)
                 }
             }.navigationBarTitle("ToDoh")
              .navigationBarItems(

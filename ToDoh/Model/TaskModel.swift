@@ -8,8 +8,12 @@
 import Foundation
 
 class TaskModel: ObservableObject {
-    @Published var tasks: [String] = []
-    
+    @Published var tasks: [Task] = []
+}
+
+struct Task: Hashable {
+    var description: String
+    var isDone: Bool
 }
 
 
