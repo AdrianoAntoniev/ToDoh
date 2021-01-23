@@ -16,7 +16,11 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(model.tasks, id: \.self) { task in
-                    Text(task.description)
+                    HStack {
+                        Text(task.description)
+                        Spacer()
+                        Image(systemName: (task.isDone ? "checkmark.seal.fill" : "figure.walk"))
+                    }
                 }
             }.navigationBarTitle("ToDoh")
              .navigationBarItems(
@@ -24,6 +28,8 @@ struct ContentView: View {
                     showForm = true
                 }, label: {
                     Image(systemName: "plus")
+                        .resizable()
+                        .frame(width: 30, height: 30)
                 }))
         }
         .sheet(isPresented: $showForm) {

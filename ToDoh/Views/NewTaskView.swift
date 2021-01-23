@@ -8,18 +8,21 @@
 import SwiftUI
 
 struct NewTaskView: View {
-    @State private var answer: String = ""
+    @State private var task: String = ""
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var model: TaskModel
             
     var body: some View {
         Form {
-            TextField("New Task", text: $answer)
-            
+            TextField("Fill in with a new task", text: $task)
             Button(action: {
-                model.tasks.append(Task(description: answer, isDone: true))
-                
-                presentationMode.wrappedValue.dismiss()
+                if !task.isBlankText() {
+                    task = task.trimmingCharacters(in: .whitespaces)
+                    
+                    model.tasks.append(Task(description: task, isDone: false))
+                    
+                    presentationMode.wrappedValue.dismiss()
+                }                
             }, label: {
                 Text("OK")
                     .font(.title3)
@@ -35,3 +38,4 @@ struct NewTask_Previews: PreviewProvider {
         NewTaskView(model: TaskModel())
     }
 }
+
