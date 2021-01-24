@@ -19,7 +19,7 @@ struct ContentView: View {
                     HStack {
                         Text(task.description)
                         Spacer()
-                        Image(systemName: (task.isDone ? "checkmark.seal.fill" : "figure.walk"))
+                        Image(systemName: (task.isHighPriority ? "exclamationmark.3" : "exclamationmark"))
                     }
                 }
             }.navigationBarTitle("ToDoh")
