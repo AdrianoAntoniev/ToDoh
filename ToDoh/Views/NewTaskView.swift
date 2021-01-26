@@ -32,9 +32,10 @@ struct NewTaskView: View {
                 Text("OK")
                     .font(.title3)
                     .bold()
-                    .foregroundColor(.green)
-            }).frame(alignment: .center)
-        }
+                    .foregroundColor(.yellow)
+            })
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
+        }                
     }
 }
 
