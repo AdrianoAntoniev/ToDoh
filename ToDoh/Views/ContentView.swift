@@ -20,14 +20,16 @@ struct ContentView: View {
                         Text(task.description)
                         Spacer()
 
-                        let homerImageAttributes = getHomerImageAndSize(basedOn: task.isHighPriority)                        
-                        Image(homerImageAttributes.image)
-                            .resizable()
-                            .frame(width: homerImageAttributes.size.width, height: homerImageAttributes.size.height)
+                        Image(systemName: "star.fill")
+                            .foregroundColor(task.isHighPriority ? .purple : .yellow)
+                        if task.isHighPriority {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(task.isHighPriority ? .purple : .yellow)
+                        }
                     }
                 }.onDelete(perform: self.deleteItem)
                 
-            }.navigationBarTitle("ToDoh")
+            }.navigationBarTitle("ToD'oh!")
              .navigationBarItems(
                 trailing: Button(action: {
                     showForm = true
@@ -43,13 +45,13 @@ struct ContentView: View {
         }
     }
     
-    private func getHomerImageAndSize(basedOn isHighPriority: Bool) -> (image: String, size: (width: CGFloat, height: CGFloat)){
-        if isHighPriority {
-            return (image: "homer-crazy", size: (width: 50, height: 50))
-        } else {
-            return (image: "homer-doh", size: (width: 80, height: 50))
-        }
-    }
+//    private func getHomerImageAndSize(basedOn isHighPriority: Bool) -> (image: String, size: (width: CGFloat, height: CGFloat)){
+//        if isHighPriority {
+//            return (image: "homer-crazy", size: (width: 50, height: 50))
+//        } else {
+//            return (image: "homer-doh", size: (width: 80, height: 50))
+//        }
+//    }
     
     private func deleteItem(at indexSet: IndexSet) {
         self.model.tasks.remove(atOffsets: indexSet)
