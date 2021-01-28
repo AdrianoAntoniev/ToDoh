@@ -14,7 +14,7 @@
 		B92C5ABA25B9399A008F9D21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92C5AB925B9399A008F9D21 /* Assets.xcassets */; };
 		B92C5ABD25B9399A008F9D21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92C5ABC25B9399A008F9D21 /* Preview Assets.xcassets */; };
 		B92C5AC025B9399A008F9D21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92C5ABE25B9399A008F9D21 /* LaunchScreen.storyboard */; };
-		B9A8E68B25BBF89E00A8C375 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8E68A25BBF89E00A8C375 /* Extensions.swift */; };
+		B9A8E68B25BBF89E00A8C375 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8E68A25BBF89E00A8C375 /* Helpers.swift */; };
 		B9F40B4425BBDC8C0086EA18 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F40B4325BBDC8C0086EA18 /* TaskModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 		B92C5ABC25B9399A008F9D21 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B92C5ABF25B9399A008F9D21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B92C5AC125B9399A008F9D21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B9A8E68A25BBF89E00A8C375 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B9A8E68A25BBF89E00A8C375 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		B9F40B4325BBDC8C0086EA18 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +103,7 @@
 				B92C5AB525B93999008F9D21 /* SceneDelegate.swift */,
 				B92C5AB925B9399A008F9D21 /* Assets.xcassets */,
 				B92C5ABE25B9399A008F9D21 /* LaunchScreen.storyboard */,
-				B9A8E68A25BBF89E00A8C375 /* Extensions.swift */,
+				B9A8E68A25BBF89E00A8C375 /* Helpers.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -179,7 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B92C5AB425B93999008F9D21 /* AppDelegate.swift in Sources */,
-				B9A8E68B25BBF89E00A8C375 /* Extensions.swift in Sources */,
+				B9A8E68B25BBF89E00A8C375 /* Helpers.swift in Sources */,
 				B923D07525B95614003E4F46 /* NewTaskView.swift in Sources */,
 				B9F40B4425BBDC8C0086EA18 /* TaskModel.swift in Sources */,
 				B92C5AB625B93999008F9D21 /* SceneDelegate.swift in Sources */,

@@ -10,12 +10,17 @@ import SwiftUI
 struct NewTaskView: View {
     @State private var task: String = ""
     @State private var isHighPriority: Bool = false
+    @State var buttonPressedWhenTextFieldIsEmpty = false
+    
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var model: TaskModel
             
     var body: some View {
         Form {
-            TextField("Fill in with a new task", text: $task)
+            TextField((buttonPressedWhenTextFieldIsEmpty ?
+                        "D'oh! Don't leave this field blank!" :
+                        "Fill in with a new task"), text: $task)
+                .keyboardType(.default)
             Toggle(isOn: $isHighPriority, label: {
                 Text("High priority")
             })
@@ -28,30 +33,36 @@ struct NewTaskView: View {
                         model.tasks.append(Task(description: task, isHighPriority: isHighPriority))
                         model.save()
                     }
+                } else {
+                    buttonPressedWhenTextFieldIsEmpty = true
                 }
             }, label: {
                 Text("OK")
                     .font(.title3)
                     .bold()
-                    .foregroundColor(.yellow)
             })
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
+            .buttonStyle(SchrinkButtonStyle())
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
             
             
             Spacer(minLength: 100)
-                        
+            
             let homerPhases = getHomerImageAndTextBasedOnNumberOfTasks()
             Image(homerPhases.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .border(Color.yellow)
+                .fixedSize()
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                
             
             Spacer(minLength: 50)
             
             Text(homerPhases.phrase)
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
-                .font(.title)
-        }                
+                .bold()
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                .font(.title2)
+                
+        }
     }
     
     func getHomerImageAndTextBasedOnNumberOfTasks() -> (phrase: String, imageName: String) {
